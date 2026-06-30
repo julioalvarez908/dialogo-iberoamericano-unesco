@@ -65,8 +65,9 @@
     const h = CONTENIDO.hero || {};
     const ev = CONTENIDO.evento || {};
     setText('#heroEtiqueta', h.etiqueta);
-    setText('#heroTitulo1', h.titulo_linea_1);
-    setText('#heroTitulo2', h.titulo_linea_2);
+    if (h.titulo_linea_1 && h.titulo_linea_2) {
+      setText('#heroH1', h.titulo_linea_1 + ' ' + h.titulo_linea_2);
+    }
     setText('#heroDesc', h.descripcion);
     setText('#heroFecha', ev.fecha);
     setText('#heroCiudad', ev.ciudad);

@@ -259,6 +259,17 @@ main { padding-top: var(--header-h); }
 @media (min-width: 980px) { .hero__grid { grid-template-columns: 1.3fr 1fr; gap: 56px; } }
 
 .hero__text { display: flex; flex-direction: column; gap: 22px; }
+.hero__logo {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+@media (max-width: 600px) {
+  .hero__logo { max-width: 100%; }
+}
 .badge {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 7px 14px; border-radius: 999px;
