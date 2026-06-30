@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="II Diálogo Iberoamericano Cátedras UNESCO — Educación, IA y Sostenibilidad. Evento académico iberoamericano 2026.">
+    <meta name="theme-color" content="#0055A5">
+    <title>II Diálogo Iberoamericano Cátedras UNESCO</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="#inicio" class="brand" aria-label="Inicio">
+                <!-- TODO: reemplazar por logo oficial cuando se tenga la licencia de UNESCO/UNAD -->
+                <div class="brand__logo" aria-hidden="true">
+                    <span class="brand__logo-text">UNESCO<br>CÁTEDRAS</span>
+                </div>
+                <div class="brand__text">
+                    <span class="brand__title">II Diálogo Iberoamericano</span>
+                    <span class="brand__subtitle">Educación, IA y Sostenibilidad</span>
+                </div>
+            </a>
+
+            <nav class="nav-primary" aria-label="Navegación principal">
+                <a href="#inicio">Inicio</a>
+                <a href="#ponentes">Ponentes</a>
+                <a href="#ecosistema" class="nav-live">
+                    <span class="pulse-dot" aria-hidden="true"><span></span><span></span></span>
+                    Ecosistema Digital
+                </a>
+                <a href="#programa">Programa</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <button class="btn btn--primary btn--cta" type="button" id="btnOpenModalHeader">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                <span>Inscribirme</span>
+            </button>
+
+            <button class="nav-toggle" type="button" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="nav-mobile" id="navMobile" hidden>
+            <a href="#inicio">Inicio</a>
+            <a href="#ponentes">Ponentes</a>
+            <a href="#ecosistema">Ecosistema Digital</a>
+            <a href="#programa">Programa</a>
+            <a href="#contacto">Contacto</a>
+            <button class="btn btn--primary btn--full" type="button" id="btnOpenModalMobile">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Inscribirme
+            </button>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+
+        <section id="inicio" class="hero">
+            <div class="container hero__grid">
+                <div class="hero__text">
+                    <span class="badge badge--soft">
+                        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                        <span id="heroEtiqueta">Conectando Iberoamérica</span>
+                    </span>
+                    <h1 class="hero__title">
+                        <span id="heroTitulo1">II Diálogo Iberoamericano</span><br>
+                        <span class="hero__title-accent" id="heroTitulo2">Cátedras UNESCO</span>
+                    </h1>
+                    <p class="hero__desc" id="heroDesc"></p>
+                    <div class="hero__meta">
+                        <div class="hero__meta-item">
+                            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+                            <span id="heroFecha">—</span>
+                        </div>
+                        <div class="hero__meta-item">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span id="heroCiudad">—</span>
+                        </div>
+                    </div>
+                    <div class="hero__actions">
+                        <a href="#ponentes" class="btn btn--accent">
+                            Conoce a nuestros ponentes <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                        <button type="button" class="btn btn--ghost" id="btnOpenModalHero">
+                            Inscríbete al evento <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <aside class="hero__card" aria-label="Ejes estratégicos">
+                    <i class="fa-solid fa-network-wired hero__card-icon" aria-hidden="true"></i>
+                    <h3 class="hero__card-title">Ejes Estratégicos 2026</h3>
+                    <ul class="hero__card-list" id="ejesList"></ul>
+                </aside>
+            </div>
+        </section>
+
+        <section id="ecosistema-canvas" class="canvas-section">
+            <div class="container">
+                <div class="section-head section-head--row">
+                    <div>
+                        <span class="kicker kicker--accent">
+                            <i class="fa-solid fa-vr-cardboard" aria-hidden="true"></i>
+                            <span>Visualizador de Cátedras</span>
+                        </span>
+                        <h2 class="section-title section-title--light">Ecosistema Interactivo</h2>
+                        <p class="section-desc section-desc--light" id="canvasDesc"></p>
+                    </div>
+                    <div class="seg-control" role="tablist" aria-label="Modo de visualización">
+                        <button id="btnMap" class="seg-control__btn seg-control__btn--active" type="button" role="tab" aria-selected="true">
+                            <i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Mapa
+                        </button>
+                        <button id="btnNet" class="seg-control__btn" type="button" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Red IA
+                        </button>
+                    </div>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-wrap">
+                        <canvas id="interactiveCanvas" aria-label="Visualización interactiva de cátedras"></canvas>
+                        <div class="canvas-controls">
+                            <button type="button" onclick="zoomCanvas(1.2)" aria-label="Acercar"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                            <button type="button" onclick="zoomCanvas(0.8)" aria-label="Alejar"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+                            <button type="button" onclick="resetCanvas()" aria-label="Restablecer vista"><i class="fa-solid fa-compress" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="canvas-hint">
+                            <i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>
+                            Arrastra y haz clic en los nodos
+                        </div>
+                    </div>
+
+                    <aside class="canvas-info" aria-live="polite">
+                        <h3 class="canvas-info__head">Información del Nodo</h3>
+                        <div id="nodeInfoEmpty" class="canvas-info__empty">
+                            <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
+                            <p>Selecciona un nodo en el visor interactivo para cargar su información.</p>
+                        </div>
+                        <div id="nodeInfoContent" class="canvas-info__content" hidden>
+                            <span id="niCountry" class="tag tag--solid">País</span>
+                            <h4 id="niTitle" class="canvas-info__title">Nombre del Nodo</h4>
+                            <dl class="canvas-info__dl">
+                                <dt>Representante / Líder</dt>
+                                <dd id="niLeader">—</dd>
+                                <dt>Línea de Acción</dt>
+                                <dd id="niLine" class="accent">—</dd>
+                                <dt>Proyecto Destacado</dt>
+                                <dd id="niProject">—</dd>
+                            </dl>
+                            <button type="button" class="btn btn--dark btn--full" id="btnConnectNode">Conectar con esta red</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="ponentes" class="speakers">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <h2 class="section-title">Ponentes y Especialistas</h2>
+                    <p class="section-desc">Expertos e investigadores que liderarán las mesas de trabajo del Diálogo.</p>
+                </div>
+
+                <form class="filters" id="filtersForm" onsubmit="return false;">
+                    <div class="field">
+                        <i class="fa-solid fa-search" aria-hidden="true"></i>
+                        <label for="searchName" class="sr-only">Buscar por nombre</label>
+                        <input type="text" id="searchName" placeholder="Buscar por nombre…" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                        <label for="searchSpecialty" class="sr-only">Especialidad o área</label>
+                        <input type="text" id="searchSpecialty" placeholder="Especialidad o área…" autocomplete="off">
+                    </div>
+                    <div class="field field--select">
+                        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                        <label for="searchCountry" class="sr-only">País</label>
+                        <select id="searchCountry">
+                            <option value="">Cualquier país</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down field__chev" aria-hidden="true"></i>
+                    </div>
+                    <div class="filters__actions">
+                        <button type="button" class="btn btn--soft" id="btnClearFilters">Limpiar filtros</button>
+                    </div>
+                </form>
+
+                <div id="speakersGrid" class="speakers__grid"></div>
+                <div id="noResults" class="speakers__empty" hidden>
+                    <i class="fa-solid fa-inbox" aria-hidden="true"></i>
+                    <p>No se encontraron ponentes con esos criterios.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecosistema" class="modules">
+            <div class="modules__pattern" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="kicker">Módulos Especializados</span>
+                    <h2 class="section-title">Centro de Control & Ecosistema Digital del Evento</h2>
+                    <p class="section-desc">Una arquitectura web robusta para dar soporte integral a la participación, co-creación y transferencia de conocimientos del diálogo.</p>
+                </div>
+                <div id="modulesGrid" class="modules__grid"></div>
+            </div>
+        </section>
+
+        <section id="programa" class="program">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="kicker kicker--accent">
+                        <span class="pulse-dot" aria-hidden="true"><span></span><span></span></span>
+                        Sincronización Activa
+                    </span>
+                    <h2 class="section-title">Programa del Diálogo</h2>
+                    <p class="section-desc">Bloques temáticos preliminares. Las sesiones se actualizarán a medida que se confirmen ponentes.</p>
+                </div>
+                <ol id="programList" class="program__list"></ol>
+                <div class="program__actions">
+                    <button type="button" class="btn btn--light" id="btnCalendar">
+                        <i class="fa-regular fa-calendar-plus" aria-hidden="true"></i> Agregar a mi calendario
+                    </button>
+                    <button type="button" class="btn btn--accent" id="btnReminder">
+                        <i class="fa-solid fa-bell" aria-hidden="true"></i> Activar recordatorios
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container cta-band__inner">
+                <h3 class="cta-band__title" id="ctaTitle">Participa en el II Diálogo Iberoamericano</h3>
+                <p class="cta-band__desc" id="ctaDesc"></p>
+                <button type="button" class="btn btn--accent btn--xl" id="btnOpenModalCta">Inscribirme</button>
+                <p class="cta-band__email">
+                    Para más información: <a id="ctaEmail" href="mailto:catedraunesco@unad.edu.co">catedraunesco@unad.edu.co</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+        <div class="container site-footer__inner">
+            <div class="site-footer__brand">
+                <!-- TODO: reemplazar por logo oficial cuando se tenga la licencia de UNESCO/UNAD -->
+                <div class="footer-logos" aria-hidden="true">
+                    <div class="footer-logo">Logo UNESCO</div>
+                    <div class="footer-logo">Logo UNAD</div>
+                </div>
+                <strong>II Diálogo Iberoamericano Cátedras UNESCO</strong>
+                <p id="footerLema">Educación, Sostenibilidad, IA e Inclusión para el Desarrollo Regional.</p>
+                <p class="site-footer__copy" id="footerCopy">© 2026</p>
+            </div>
+            <nav class="site-footer__nav" aria-label="Pie de página">
+                <a href="#inicio">Inicio</a>
+                <a href="#ponentes">Ponentes</a>
+                <a href="#programa">Programa</a>
+                <a href="#" id="linkPrivacidad">Privacidad</a>
+            </nav>
+        </div>
+    </footer>
+
+    <div id="registerModal" class="modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__dialog">
+            <header class="modal__head">
+                <div>
+                    <h3 id="modalTitle">Registro de participantes</h3>
+                    <p id="modalSubtitle">Completa la siguiente información.</p>
+                </div>
+                <button type="button" class="modal__close" data-close aria-label="Cerrar">&times;</button>
+            </header>
+
+            <div class="modal__body" id="modalBody">
+                <form id="registrationForm" class="form" novalidate>
+                    <div class="form__row">
+                        <label for="regName">Nombre completo *</label>
+                        <div class="form__input">
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
+                            <input type="text" id="regName" name="nombre" required minlength="2" maxlength="120" autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <label for="regInstitucion">Institución *</label>
+                        <div class="form__input">
+                            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+                            <input type="text" id="regInstitucion" name="institucion" required minlength="2" maxlength="200" autocomplete="organization">
+                        </div>
+                    </div>
+                    <div class="form__row form__row--split">
+                        <div>
+                            <label for="regPais">País *</label>
+                            <div class="form__input">
+                                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                                <input type="text" id="regPais" name="pais" required minlength="2" maxlength="80" autocomplete="country-name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="regRol">Rol *</label>
+                            <div class="form__input form__input--select">
+                                <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
+                                <select id="regRol" name="rol" required>
+                                    <option value="">Selecciona…</option>
+                                    <option value="Estudiante">Estudiante</option>
+                                    <option value="Docente / Investigador">Docente / Investigador</option>
+                                    <option value="Representante Institucional">Representante Institucional</option>
+                                    <option value="Ponente">Ponente</option>
+                                    <option value="Asistente General">Asistente General</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down field__chev" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <label for="regEmail">Correo electrónico *</label>
+                        <div class="form__input">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <input type="email" id="regEmail" name="correo" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <label class="form__check">
+                        <input type="checkbox" id="regAccept" required>
+                        <span>Acepto el tratamiento de mis datos personales según la <a href="#" id="linkPolitica">Política de Privacidad</a>.</span>
+                    </label>
+
+                    <div class="form__note">
+                        <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+                        Esta es una demo pública: los registros se guardan localmente y no se envía correo.
+                    </div>
+
+                    <div class="form__error" id="formError" hidden></div>
+
+                    <button type="submit" id="btnSubmit" class="btn btn--primary btn--full btn--xl" disabled>
+                        Registrarme
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        <span id="toastMsg">Acción exitosa</span>
+    </div>
+
+    <script src="/static/js/main.js" defer></script>
+</body>
+</html>
